@@ -9,10 +9,12 @@ let potteryToSell = [];
 // define and export a function called usePottery that returns a copy of the array to be sold.
 
 export const toSellOrNotToSell = (shouldISell) => {
-  if (shouldISell.weight >= 6 && !shouldISell.cracked) {
-    shouldISell.price = 40;
-  } else if (shouldISell.weight < 6 && !shouldISell.cracked) {
-    shouldISell.price = 20;
+  if (shouldISell.cracked === false) {
+    if (shouldISell.weight >= 6) {
+      shouldISell.price = 40;
+    } else {
+      shouldISell.price = 20;
+    }
     potteryToSell.push(shouldISell);
   }
   return shouldISell;
